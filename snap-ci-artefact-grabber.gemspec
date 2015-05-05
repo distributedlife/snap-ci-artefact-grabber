@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'snap/ci/artefact/grabber/version'
+require 'version'
 
 Gem::Specification.new do |spec|
   spec.name          = "snap-ci-artefact-grabber"
-  spec.version       = Snap::Ci::Artefact::Grabber::VERSION
+  spec.version       = SnapCI::VERSION
   spec.authors       = ["Ryan Boucher"]
   spec.email         = ["ryan.boucher@distributedlife.com"]
 
@@ -20,4 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.9"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec", "~> 3.2"
+  spec.add_development_dependency "stub_env", "~> 1.0.2"
+  spec.add_development_dependency "fakeweb", "~> 1.3"
 end
