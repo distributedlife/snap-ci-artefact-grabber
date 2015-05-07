@@ -18,7 +18,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+snap = SnapCI::ArtefactGrabber.new("distributedlife", "snap-ci-artefact-grabber", "branch",  "defaultPipeline")
+
+file_contents = snap.get_artefact_url_for_stage("build", "coverage/coverage-summary.json")
+
+json = JSON.parse(file_contents)
+```
 
 ## Development
 
