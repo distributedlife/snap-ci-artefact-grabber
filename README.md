@@ -37,9 +37,17 @@ To get an artefact supply the `stage` and the `filename` that you have  told [Sn
 All values are case sensitive.
 
 ```ruby
-snap = SnapCI::ArtefactGrabber.new("distributedlife", "snap-ci-artefact-grabber", "master",  "defaultPipeline")
+snap = SnapCI::ArtefactGrabber.new(
+  "distributedlife",
+  "snap-ci-artefact-grabber",
+  "master",
+  "defaultPipeline"
+)
 
-file_contents = snap.get_artefact_url_for_stage("build", "coverage/coverage-summary.json")
+file_contents = snap.get_artefact_url_for_stage(
+  "build",
+  "coverage/coverage-summary.json"
+)
 
 json = JSON.parse(file_contents)
 ```
