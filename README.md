@@ -30,9 +30,9 @@ SNAP_USER=distributedlife SNAP_APIKEY=derpderp bundle exec dashing start
 
 Using the gem:
 
-An `ArtefactGrabber` requires four parameters: the owner, the repo, the branch and the pipeline name. This is usually defaultPipeline.
+An `ArtefactGrabber` requires four parameters: the `owner`, the `repo`, the `branch` and the pipeline name. This is usually `defaultPipeline`.
 
-To get an artefact supply the stage and the name of the file that you have already told [Snap CI](https://snap-ci.com) to store.
+To get an artefact supply the `stage` and the `filename` that you have  told [Snap CI](https://snap-ci.com) to archive.
 
 All values are case sensitive.
 
