@@ -54,6 +54,10 @@ describe 'SnapCIArtefactGrabber' do
         response = artefact_grabber.get_artefact_url_for_stage "stage", "filename"
         expect(response).to eq "file contents"
       end
+
+      it 'should return an exception when not found' do
+        expect{artefact_grabber.get_artefact_url_for_stage("unknown", "filename")}.to raise_error(IOError)
+      end
     end
   end
 end

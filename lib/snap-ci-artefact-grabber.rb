@@ -43,7 +43,11 @@ module SnapCI
         raise "SNAP_USER or SNAP_APIKEY is not set as ENV vars"
       end
 
-      open(url, { http_basic_authentication: [ENV['SNAP_USER'], ENV['SNAP_APIKEY']] }).read
+      begin
+        open(url, { http_basic_authentication: [ENV['SNAP_USER'], ENV['SNAP_APIKEY']] }).read
+      rescue
+        raise IOError, "Exception whilst trying to get: #{url}"
+      end
     end
   end
 end
