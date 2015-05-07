@@ -14,14 +14,18 @@ module SnapCI
     end
 
     def get_artefact_url_for_stage stage, filename
-      url = "https://api.snap-ci.com/project/#{@owner}/#{@repo}/branch/#{@branch}/artifacts/#{@pipeline}/#{@pipeline_counter}/#{stage}/1/#{filename}"
+      url = "#{base_url}/branch/#{@branch}/artifacts/#{@pipeline}/#{@pipeline_counter}/#{stage}/1/#{filename}"
 
       get_from_snap url
     end
 
     private
+    def base_url
+      "https://api.snap-ci.com/project/#{@owner}/#{@repo}"
+    end
+
     def get_latest_pipeline
-      url = "https://api.snap-ci.com/project/#{@owner}/#{@repo}/branch/#{@branch}/pipelines"
+      url = "#{base_url}/branch/#{@branch}/pipelines"
 
       pipelines = JSON.parse(get_from_snap(url))
       @pipeline_counter = pipelines['_embedded']['pipelines'][0]['counter']
